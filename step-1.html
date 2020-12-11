@@ -11,29 +11,21 @@
         var number = prompt('숫자를 입력해주세요(-100이상 100미만)');
         var direction = prompt('방향을 입력해주세요(L/l/R/r)');
         var pushNumber = Math.abs(number) % inputWord.length;
-
+        var word = inputWord;
 
         if((number > 0 && direction.toUpperCase() === 'L') || (number < 0 && direction.toUpperCase() === 'R')){
-            
-            var wordArr = inputWord.split("");
             for(var i = 0; i < pushNumber; i++){
-                var firstLetter = wordArr.shift(wordArr[0]);
-                wordArr.push(firstLetter);
-                wordArr.join("");
+                word = word.slice(1, word.length) + word[0]              
             }
-            alert(wordArr.join(""));
-        };
-
+            alert(word);
+        } 
+        
         if((number > 0 && direction.toUpperCase() === 'R') || (number < 0 && direction.toUpperCase() === 'L')){
-            var wordArr = inputWord.split("");
-            
-            for(var i = 0; i < pushNumber; i++){               
-                var lastLetter = wordArr.pop(wordArr[wordArr.length - 1]);
-                wordArr.unshift(lastLetter);
-                wordArr.join("");
+            for(var i = 0; i < pushNumber; i++){
+                word = word[word.length - 1] + word.slice(0, word.length - 1)              
             }
-            alert(wordArr.join(""));
-        };
+            alert(word);
+        }
     </script>
 </body>
 </html>
