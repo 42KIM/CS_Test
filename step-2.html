@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var cube =[['R','R','W'],
+                   ['G','C','W'],
+                   ['G','B','B']];
+        var input = prompt("R R W\nG C W\nG B B\n\nCUBE>") 
+
+        for (i=0; i<input.length; i++){
+            if(input[i] === "U"){
+                var firstLetter = cube[0].shift(cube[0][0]);
+                cube[0].push(firstLetter);
+                var cubeResult = cube;
+                
+                alert(cubeResult[0].join(' ')+'<br>'+cubeResult[1].join(' ')+'<br>'+cubeResult[2].join(' '));
+            };
+            if(input[i] === "U'"){
+                var lastLetter = cube[0].pop(cube[0][cube[0].length - 1]);
+                cube[0].unshift(lastLetter);
+                var cubeResult = cube;
+                
+                alert(cubeResult[0].join(' ')+'<br>'+cubeResult[1].join(' ')+'<br>'+cubeResult[2].join(' '));
+            };
+            if(input[i] === "R"){
+                var first = cube[0].pop();
+                var first2 = cube[1].pop();
+                var first3 = cube[2].pop();
+                cube[0].push(first2);
+                cube[1].push(first3);
+                cube[2].push(first);
+                var cubeResult = cube;
+
+                alert(cubeResult[0].join(' ')+'<br>'+cubeResult[1].join(' ')+'<br>'+cubeResult[2].join(' '));
+            };
+            if(input[i] === "R'"){
+                var first = cube[0].pop();
+                var first2 = cube[1].pop();
+                var first3 = cube[2].pop();
+                cube[0].push(first3);
+                cube[1].push(first);
+                cube[2].push(first2);
+                var cubeResult = cube;
+
+                alert(cubeResult[0].join(' ')+'<br>'+cubeResult[1].join(' ')+'<br>'+cubeResult[2].join(' '));
+            }
+            if(input[i] === "L'"){
+                var first = cube[0].shift();
+                var first2 = cube[1].shift();
+                var first3 = cube[2].shift();
+                cube[0].unshift(first2);
+                cube[1].unshift(first3);
+                cube[2].unshift(first);
+                var cubeResult = cube;
+
+                alert(cubeResult[0].join(' ')+'<br>'+cubeResult[1].join(' ')+'<br>'+cubeResult[2].join(' '));
+            };
+            if(input[i] === "L"){
+                var first = cube[0].shift();
+                var first2 = cube[1].shift();
+                var first3 = cube[2].shift();
+                cube[0].unshift(first3);
+                cube[1].unshift(first);
+                cube[2].unshift(first2);
+                var cubeResult = cube;
+
+                alert(cubeResult[0].join(' ')+'<br>'+cubeResult[1].join(' ')+'<br>'+cubeResult[2].join(' '));
+            };
+            if(input[i] === "B"){
+                var lastLetter = cube[2].pop(cube[2][cube[2].length - 1]);
+                cube[2].unshift(lastLetter);
+                var cubeResult = cube;
+                
+                alert(cubeResult[0].join(' ')+'<br>'+cubeResult[1].join(' ')+'<br>'+cubeResult[2].join(' '));
+            };
+            if(input[i] === "B'"){
+                var firstLetter = cube[2].shift(cube[2][0]);
+                cube[2].push(firstLetter);
+                var cubeResult = cube;
+                
+                alert(cubeResult[0].join(' ')+'<br>'+cubeResult[1].join(' ')+'<br>'+cubeResult[2].join(' '));
+            };
+            if(input[i] === "Q"){
+                alert("Bye~");
+            };
+        };
+    </script>
+</body>
+</html>
