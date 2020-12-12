@@ -36,42 +36,54 @@
             cube[0][c] = temp;
         }
         function printCube() {
-            document.write(input[i]+'<br>')
-            document.write(cube[0].join(" ") + '<br>'
-                         + cube[1].join(" ") + '<br>'
-                         + cube[2].join(" ") + '<br>'+'<br>');
+            if(input[i+1] !== "'"){
+                document.write(input[i] +'<br>')
+                document.write(cube[0].join(" ") + '<br>'
+                             + cube[1].join(" ") + '<br>'
+                             + cube[2].join(" ") + '<br>'+'<br>');
+            };
+            if(input[i+1] === "'"){
+                document.write(input[i]+ "'" + '<br>')
+                document.write(cube[0].join(" ") + '<br>'
+                             + cube[1].join(" ") + '<br>'
+                             + cube[2].join(" ") + '<br>'+'<br>');
+            };
         }
 
-        var input = prompt("R R W\nG C W\nG B B\n\nCUBE>")
+        var input = prompt("R R W\nG C W\nG B B\n\nCUBE>");
+
         document.write(cube[0].join(" ") + '<br>'
                      + cube[1].join(" ") + '<br>'
                      + cube[2].join(" ") + '<br>'+'<br>');
         document.write('CUBE>' + ' ' + input + '<br>'+'<br>');
 
         for(var i = 0; i < input.length; i++){
-            if(input[i] === "U"){
+            if(input[i] === "U" && input[i+1] !== "'"){
                 shiftLeft(0);
             }
-            if(input[i] === "U'"){
+            if(input[i] === "U" && input[i+1] === "'"){
                 shiftRight(0);
             }
-            if(input[i] === "R"){
+            if(input[i] === "R" && input[i+1] !== "'"){
                 shiftUp(2);
             }
-            if(input[i] === "R'"){
+            if(input[i] === "R" && input[i+1] === "'"){
                 shiftDown(2);
             }
-            if(input[i] === "L"){
+            if(input[i] === "L" && input[i+1] !== "'"){
                 shiftDown(0);
             }
-            if(input[i] === "L'"){
+            if(input[i] === "L" && input[i+1] === "'"){
                 shiftUp(0);
             }
-            if(input[i] === "B"){
+            if(input[i] === "B" && input[i+1] !== "'"){
                 shiftRight(2);
             }
-            if(input[i] === "B'"){
+            if(input[i] === "B" && input[i+1] === "'"){
                 shiftLeft(2);
+            }
+            if(input[i] === "'"){
+                continue;
             }
             if(input[i] === "Q"){
                 document.write("Bye~");
@@ -79,6 +91,7 @@
             }
             printCube();
         }     
+
     </script>
 </body>
 </html>
